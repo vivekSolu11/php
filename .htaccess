@@ -1,0 +1,12 @@
+
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
+RewriteCond %{HTTP_HOST} ^simulator\.orloffadvisors\.com$
+RewriteRule ^/?$ "http\:\/\/https\:\/\/" [R=301,L]
+
+
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
